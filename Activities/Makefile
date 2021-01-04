@@ -4,11 +4,11 @@ CFLAGS= -c -mcpu=$(MACH) -mthumb -mfloat-abi=soft -std=gnu11 -Wall -O0
 LDFLAGS= -mcpu=$(MACH) -mthumb -mfloat-abi=soft --specs=nano.specs -T stm32_ls.ld -Wl,-Map=final.map
 LDFLAGS_SH= -mcpu=$(MACH) -mthumb -mfloat-abi=soft --specs=rdimon.specs -T stm32_ls.ld -Wl,-Map=final.map
 
-all:Multiplication.o stm32_startup.o syscalls.o final.elf
+all:main.o stm32_startup.o syscalls.o final.elf
 
-semi:Multiplication.o stm32_startup.o syscalls.o final_sh.elf
+semi:main.o stm32_startup.o syscalls.o final_sh.elf
 
-Multiplication.o: Multiplication.c
+main.o: main.c
 	$(CC) $(CFLAGS) -o $@ $^
 
 stm32_startup.o:stm32_startup.c
