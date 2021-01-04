@@ -17,10 +17,10 @@ stm32_startup.o:stm32_startup.c
 syscalls.o:syscalls.c
 	$(CC) $(CFLAGS) -o $@ $^
 	
-final.elf: Multiplication.o stm32_startup.o syscalls.o
+final.elf: main.o stm32_startup.o syscalls.o
 	$(CC) $(LDFLAGS) -o $@ $^
 	
-final_sh.elf: Multiplication.o stm32_startup.o
+final_sh.elf: main.o stm32_startup.o
 	$(CC) $(LDFLAGS_SH) -o $@ $^
 
 clean:
